@@ -36,6 +36,7 @@ bot.on("message", async message => {
     message.reply("Nejsi Prémium!")
     }
   }
+  //warn prikaz ↓
   if (cmd === `${prefix}warn`) {
     let logs = message.guild.channels.find(`name`, "logs")
     let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
