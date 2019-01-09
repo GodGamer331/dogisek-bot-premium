@@ -23,7 +23,7 @@ bot.on("message", async message => {
     .setTitle("Ping")
     .addField(":ping_pong:", "Pong!");
     message.content.send(embed)
-    break;
+    return;
   }
 });
 
