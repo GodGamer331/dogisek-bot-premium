@@ -22,11 +22,12 @@ bot.on("message", async message => {
   
   //ping command ↓
   
-  if (!premium) return message.channel.send("Nejsi prémium!")
+  //if (!premium) return message.channel.send("Nejsi prémium!")
   if (cmd === `${prefix}ping`) {
     var embed = new Discord.RichEmbed()
     .setTitle("Ping")
     .addField(":ping_pong:", "Pong!");
+  if (!premium) return message.channel.send("Nejsi Prémium!");
     message.channel.send(embed);
     return;
   }
