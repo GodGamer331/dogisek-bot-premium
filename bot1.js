@@ -18,18 +18,22 @@ bot.on("message", async message => {
   let cmd = messageArray[0]
   let args = messageArray.slice(1)
   let mods = message.guild.roles.find("name", "Moderator");
-  let premium = message.guild.roles.find(`name`, "★†Premium†★");
   
   //ping command ↓
   
   //if (!premium) return message.channel.send("Nejsi prémium!")
   if (cmd === `${prefix}ping`) {
+    let premium = message.guild.roles.find("name", "★†Premium†★");
+    if (message.member.roles.has(premium.id)) {
+  
     var embed = new Discord.RichEmbed()
     .setTitle("Ping")
     .addField(":ping_pong:", "Pong!");
-  if (!premium) return message.channel.send("Nejsi Prémium!");
+  //if (!premium) return message.channel.send("Nejsi Prémium!");
     message.channel.send(embed);
     return;
+  } else {
+    message.reply("Nejsi Prémium!")
   }
 });
 
