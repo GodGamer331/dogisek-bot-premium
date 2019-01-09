@@ -27,7 +27,7 @@ bot.on("message", async message => {
     var embed = new Discord.RichEmbed()
     .setTitle("Ping")
     .addField(":ping_pong:", "Pong!");
-    message.content.send(embed);
+    message.content.sendMessage(embed);
     return;
   }
 });
