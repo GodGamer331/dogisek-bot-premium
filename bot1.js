@@ -36,6 +36,24 @@ bot.on("message", async message => {
     message.reply("Nejsi Prémium!")
     }
   }
+  if (cmd === `${prefix}warn`) {
+    let logs = message.guild.channels.find(`name`, "logs")
+    let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    let reason = args.join(" ").slice(22);
+    let mods = message.guild.roles.find("name", "Moderator")
+    if (message.member.roles.has(mods.id)) {
+    var embed = new Discord.RichEmbed()
+    .setTitle("Varování")
+    .setTimestamp()
+    .addField("Varován:", wUser)
+    .addField("Moderátor:", message.author.username)
+    .addField("Důvod:", reason)
+    .setFooter("Moderátor " + message.author.username + " varoval " + wUser);
+    message.channel.send(embed)
+    } else {
+      message.reply("Nejsi moderátor!")
+    }
+  }
 });
 
 
