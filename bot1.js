@@ -53,7 +53,8 @@ bot.on("message", async message => {
     } else {
       message.reply("Nejsi moderátor!")
     }
-  }
+    if (!logs) return message.channel.send("Není tu ``logs`` channal!")
+  } 
 });
 
 
