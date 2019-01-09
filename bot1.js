@@ -16,8 +16,8 @@ bot.on("message", function(message){
   var args = message.content.substring(prefix.lenght).split(" ");
   
   switch (args[0]){
-      case "ping";
-      message.content.sendMessage(":ping_pong: Pong!");
+      case "ping":
+      message.content.send(":ping_pong: Pong!");
       break;
       
   }
