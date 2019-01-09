@@ -49,7 +49,7 @@ bot.on("message", async message => {
     .addField("Moderátor:", message.author.username)
     .addField("Důvod:", reason)
     .setFooter("Moderátor " + message.author.username + " varoval " + wUser);
-    message.channel.send(embed)
+    logs.send(embed)
     } else {
       message.reply("Nejsi moderátor!")
     }
