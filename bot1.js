@@ -14,6 +14,7 @@ bot.on("message", async message => {
   if (message.channel.type === "dm") return;
   let prefix = "P>"
   let cmd = messageArray[0]
+  let messageArray = message.content.split(" ")
   
   if(cmd === `${prefix}help`){
     var embed = new Discord.RichEmbed
