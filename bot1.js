@@ -22,8 +22,8 @@ bot.on("message", async message => {
   
   //ping command ↓
   
-  if(!premium) return message.channel.send("Nejsi prémium!")
-  if(cmd === `${prefix}ping`){
+  if (!premium) return message.channel.send("Nejsi prémium!")
+  if (cmd === `${prefix}ping`) {
     var embed = new Discord.RichEmbed()
     .setTitle("Ping")
     .addField(":ping_pong:", "Pong!");
