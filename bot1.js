@@ -55,7 +55,22 @@ bot.on("message", async message => {
       message.reply("Nejsi moderátor!")
     }
     if (!logs) return message.channel.send("Není tu ``logs`` channal!")
-  } 
+  }
+  if (cmd === `${prefix}help`) {
+    let premium = message.guild.roles.find("name", "★†Premium†★");
+    if (message.member.roles.has(premium.id)) {
+    var embed = new Discord.RichEmbed()
+    .setTitle("Pomoc!")
+    .setColor("GREEN")
+    .setFooter(message.author.username + " potřebuje pomoc :)")
+    .setTimestamp()
+    .addField("P>mod help")
+    .addField("P>general help");
+    message.channel.send(embed)
+    } else {
+      message.reply("Nejsi premium!")
+    }
+  }
 });
 
 
