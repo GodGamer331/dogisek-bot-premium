@@ -13,10 +13,12 @@ bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
   let prefix = "P>"
+  let cmd = messageArray[0]
   
   if(cmd === `${prefix}help`){
     var embed = new Discord.RichEmbed
     .setTitle("Pomoc!")
+    .setDescription("P>help => Ukáže ti pomoc!")
     .setColor("GREEN")
     .addField("P>say", "Bot řekne něco")
     .setTimestamp()
