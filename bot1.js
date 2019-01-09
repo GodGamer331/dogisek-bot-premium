@@ -8,25 +8,13 @@ bot.on("ready", async () => {
   bot.user.setActivity("Všechny prémium! [P>]", {type: "WATCHING"});
 });
 
-bot.on("message", async message => {
-
-  if (message.author.bot) return;
-  if (message.channel.type === "dm") return;
-  let prefix = "P>"
-  let cmd = messageArray[0]
-  let messageArray = message.content.split(" ")
+bot.on("message", function(message){
+  if(message.author.equals(bot.user)) return;
   
-  if(cmd === `${prefix}help`){
-    var embed = new Discord.RichEmbed
-    .setTitle("Pomoc!")
-    .setDescription("P>help => Ukáže ti pomoc!")
-    .setColor("GREEN")
-    .addField("P>say", "Bot řekne něco")
-    .setTimestamp()
-    .setFooter("Bot vytvořen JustNela#6666");
-    message.channel.sendEmbed(embed)
-    return;
+  if(message.content == "Dogisrk Bot Premium"){
+    message.channel.sendMessage("Muj prefix je P>");
   }
 });
+
 
 bot.login(process.env.token);
