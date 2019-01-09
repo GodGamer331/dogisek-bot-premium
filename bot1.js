@@ -9,19 +9,22 @@ bot.on("ready", async () => {
   bot.user.setActivity("Všechny prémium! [P>]", {type: "WATCHING"});
 });
 
-bot.on("message", function(message){
-  if(message.author.equals(bot.user)) return;
-  if(!message.content.startsWith(prefix)) return;
+bot.on("message", async message => {
+
+  if (message.author.bot) return;
   
-  var args = message.content.substring(prefix.lenght).split(" ");
+  let prefix = "P>"
+  let messageArray = message.content.split(" ")
+  let cmd = messageArray[0]
+  let args = messageArray.slice(1)
   
-  switch (args[0]){
-      case "ping":
-         message.content.send(":ping_pong: Pong!");
-         break;
-      
+  if(cmd === `${prefix}ping`){
+    var embed = new Discord.RichEmbed()
+    .setTitle("Ping")
+    .addField(":ping_pong:", "Pong!");
+    message.content.send(embed)
+    break;
   }
-    
 });
 
 
