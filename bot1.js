@@ -18,7 +18,7 @@ bot.on("message", async message => {
   let cmd = messageArray[0]
   let args = messageArray.slice(1)
   let mods = message.guild.roles.find("name", "Moderator");
-  let premium = message.guild.roles.find("name", "★†Premium†★");
+  let premium = message.guild.roles.find(`name`, "★†Premium†★");
   
   //ping command ↓
   
