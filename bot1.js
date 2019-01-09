@@ -32,8 +32,9 @@ bot.on("message", async message => {
   //if (!premium) return message.channel.send("Nejsi Prémium!");
     message.channel.send(embed);
     return;
-  } else {
+    } else {
     message.reply("Nejsi Prémium!")
+    }
   }
 });
 
