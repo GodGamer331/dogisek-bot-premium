@@ -17,8 +17,8 @@ bot.on("message", function(message){
   
   switch (args[0]){
       case "ping":
-      message.content.send(":ping_pong: Pong!");
-      break;
+         message.content.send(":ping_pong: Pong!");
+         break;
       
   }
     
