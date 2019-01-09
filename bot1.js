@@ -17,7 +17,7 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ")
   let cmd = messageArray[0]
   let args = messageArray.slice(1)
-  
+  //ping command
   if(cmd === `${prefix}ping`){
     var embed = new Discord.RichEmbed()
     .setTitle("Ping")
