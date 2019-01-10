@@ -29,9 +29,9 @@ bot.on("message", async message => {
     var embed = new Discord.RichEmbed()
     .setTitle("Ping")
     .setColor(0xffb200)
-    .setTimestamp
+    .setTimestamp()
     .addField(":ping_pong:", "Pong!");
-  //if (!premium) return message.channel.send("Nejsi Prémium!");
+ // if (!premium) return message.channel.send("Nejsi Prémium!");
     message.channel.send(embed);
     return;
     } else {
