@@ -28,6 +28,8 @@ bot.on("message", async message => {
   
     var embed = new Discord.RichEmbed()
     .setTitle("Ping")
+    .setColor(0xffb200)
+    .setTimestamp
     .addField(":ping_pong:", "Pong!");
   //if (!premium) return message.channel.send("Nejsi Prémium!");
     message.channel.send(embed);
@@ -75,7 +77,7 @@ bot.on("message", async message => {
   if (cmd === `${prefix}generalhelp`){
     var embed = new Discord.RichEmbed()
     .setTitle("Pomoc pro Prémium!")
-    .setColor("YELLOW")
+    .setColor(0xffff00)
     .addField("P>ping", "Ukáže ti ping bota!")
     .setTimestamp()
     .setFooter(message.author.username + "Potřeboval pomoc!");
