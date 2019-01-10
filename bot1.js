@@ -71,6 +71,18 @@ bot.on("message", async message => {
       message.reply("Nejsi premium!")
     }
   }
+  if (cmd === `DogisekBot Premium`.toLowerCase()){
+    var embed = new Discord.RichEmbed()
+    .setTitle("Nepotřebuješ pomoc?")
+    .setColor("ORANGE")
+    .setFooter(message.author.username + "Potřeboval pomoc :)")
+    .addField("Prefix", "P>")
+    .setThumbnail(message.author.avatarURL)
+    .setTimestamp();
+    message.channel.send(embed)
+  
+              
+  }
 });
 
 
