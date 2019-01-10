@@ -91,10 +91,10 @@ bot.on("message", async message => {
     let reason = args.join(" ").slice(22);
     let mod = message.guild.roles.find("name", "Moderator");
     let logs = message.guild.channels.find(`name`, "logs")
-    if (!kUser) return message.channel.send("Tento člověk není na serveru/nemá oprávní vidět do tohoto kanálu!");
+    if (!kUser) return message.channel.send("Nemůžeš vyhodit vzduch :joy: (P>kick ``@člověk`` důvod");
     if (!reason) return message.channel.send("Prosím zadejte důvod (P>kick @Člověk ``Důvod``)");
-    if (kUser.hasPermissions("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka kicknout")
-    if (!message.member.hasePrmissions("MANAGE_MESSAGES")) return message.channel.send("Nemáš práva!")
+    if (kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka kicknout")
+    if (!message.member.hasePrmission("MANAGE_MESSAGES")) return message.channel.send("Nemáš práva!")
     
     var embed = new Discord.RichEmbed()
     .setTitle("Kick oznámení")
