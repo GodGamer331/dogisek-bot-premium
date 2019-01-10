@@ -64,15 +64,15 @@ bot.on("message", async message => {
     .setColor("GREEN")
     .setFooter(message.author.username + " potřebuje pomoc :)")
     .setTimestamp()
-    .addField("P>mod help")
-    .addField("P>general help");
+    .addField("P>modhelp")
+    .addField("P>generalhelp");
     message.channel.send(embed)
     } else {
       message.reply("Nejsi premium!")
     }
   }
   
-  if (cmd === `${prefix}general help`){
+  if (cmd === `${prefix}generalhelp`){
     var embed = new Discord.RichEmbed()
     .setTitle("Pomoc pro Prémium!")
     .setColor("YELLOW")
