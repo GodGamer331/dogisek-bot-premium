@@ -58,6 +58,7 @@ bot.on("message", async message => {
     }
     if (!logs) return message.channel.send("Není tu ``logs`` channal!")
   }
+  //help command ↓
   if (cmd === `${prefix}help`) {
     let premium = message.guild.roles.find("name", "★†Premium†★");
     if (message.member.roles.has(premium.id)) {
@@ -73,7 +74,7 @@ bot.on("message", async message => {
       message.reply("Nejsi premium!")
     }
   }
-  
+  //generL help command ↓
   if (cmd === `${prefix}generalhelp`){
     var embed = new Discord.RichEmbed()
     .setTitle("Pomoc pro Prémium!")
@@ -84,7 +85,28 @@ bot.on("message", async message => {
     message.channel.send(embed)
     
   }
-  
+  //kick command ↓
+  if (cmd === `${prefix}kick`){
+    let kUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    let reason = args.join(" ").slice(22);
+    let mod = message.guild.roles.find("name", "Moderator");
+    let logs = message.guild.channels.find(`name`, "logs")
+    if (!kUser) return message.channel.send("Tento člověk není na serveru/nemá oprávní vidět do tohoto kanálu!");
+    if (!reason) return message.channel.send("Prosím zadejte důvod (P>kick @Člověk ``Důvod``)");
+    if (kUser.hasPermissions("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka kicknout")
+    if (!message.member.hasePrmissions("MANAGE_MESSAGES")) return message.channel.send("Nemáš práva!")
+    
+    var embed = new Discord.RichEmbed()
+    .setTitle("Kick oznámení")
+    .setTimestamp()
+    .addField("Kicknutej:", kUser)
+    .addField("Moderator:", message.author.username)
+    .addField("Důvod:", reason)
+    .setColor("#af3636");
+    
+    message.guild.member(kUser).kick(reason)
+    logs.send(embed)
+  }
 });
 
 
