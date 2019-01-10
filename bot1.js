@@ -94,7 +94,7 @@ bot.on("message", async message => {
     if (!kUser) return message.channel.send("Nemůžeš vyhodit vzduch :joy: (P>kick ``@člověk`` důvod");
     if (!reason) return message.channel.send("Prosím zadejte důvod (P>kick @Člověk ``Důvod``)");
     if (kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka kicknout")
-    if (!message.member.hasePrmission("MANAGE_MESSAGES")) return message.channel.send("Nemáš práva!")
+    if (!message.member.hasPrmission("MANAGE_MESSAGES")) return message.channel.send("Nemáš práva!")
     
     var embed = new Discord.RichEmbed()
     .setTitle("Kick oznámení")
