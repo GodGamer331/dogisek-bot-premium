@@ -71,18 +71,28 @@ bot.on("message", async message => {
       message.reply("Nejsi premium!")
     }
   }
-  if (cmd === `DogisekBot Premium`.toLowerCase()){
+  if message.content.startsWith("DogisekBot Premium");
     var embed = new Discord.RichEmbed()
     .setTitle("Nepotřebuješ pomoc?")
     .setColor("ORANGE")
     .setFooter(message.author.username + "Potřeboval pomoc :)")
     .addField("Prefix", "P>")
+    .addField("Ifo:", "Pokud nemáš ★†Premium†★ roli tak nemůžeš používat tohoto bota.")
     .setThumbnail(message.author.avatarURL)
     .setTimestamp();
     message.channel.send(embed)
   
-              
+  if (cmd === `${prefix}help general`){
+    var embed = new Discord.RichEmbed()
+    .setTitle("Pomoc pro Prémium!")
+    .setColor("YELLOW")
+    .addField("P>ping", "Ukáže ti ping bota!")
+    .setTimestamp()
+    .setFooter(message.author.username + "Potřeboval pomoc!");
+    message.channel.send(embed)
+    
   }
+  
 });
 
 
