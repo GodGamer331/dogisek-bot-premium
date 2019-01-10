@@ -72,7 +72,7 @@ bot.on("message", async message => {
     }
   }
   
-  if (cmd === `${prefix}help general`){
+  if (cmd === `${prefix}general help`){
     var embed = new Discord.RichEmbed()
     .setTitle("Pomoc pro Prémium!")
     .setColor("YELLOW")
