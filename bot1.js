@@ -17,7 +17,7 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ")
   let cmd = messageArray[0]
   let args = messageArray.slice(1)
-  let mods = message.guild.roles.find("name", "Moderator");
+  let mods = message.guild.roles.find("name", "#~Moderator~#");
   
   //ping command ↓
   
@@ -43,7 +43,7 @@ bot.on("message", async message => {
     let logs = message.guild.channels.find(`name`, "logs")
     let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     let reason = args.join(" ").slice(22);
-    let mods = message.guild.roles.find("name", "Moderator")
+    let mods = message.guild.roles.find("name", "#~Moderator~#")
     if (message.member.roles.has(mods.id)) {
     var embed = new Discord.RichEmbed()
     .setTitle("Varování")
@@ -89,12 +89,12 @@ bot.on("message", async message => {
   if (cmd === `${prefix}kick`){
     let kUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     let reason = args.join(" ").slice(22);
-    let mod = message.guild.roles.find("name", "Moderator");
+    let mod = message.guild.roles.find("name", "#~Moderator~#");
     let logs = message.guild.channels.find(`name`, "logs");
     if (!kUser) return message.channel.send("Nemůžeš vyhodit vzduch :joy: (P>kick ``@člověk`` důvod");
     if (!reason) return message.channel.send("Prosím zadejte důvod (P>kick @Člověk ``Důvod``)");
     if (kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka kicknout");
-   // if (!message.member.hasPrmission("MANAGE_MESSAGES")) return message.channel.send("Nemáš práva!");
+    if (!mod) return message.channel.send("Nemáš práva!");
     
     var embed = new Discord.RichEmbed()
     .setTitle("Kick oznámení")
@@ -106,8 +106,29 @@ bot.on("message", async message => {
     
     message.guild.member(kUser).kick(reason)
     logs.send(embed)
-  } else {
-    message.reply("Nemáš práva!")
+  
+   
+  }
+  if (cmd === `${prefix}ban`){
+    let bUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+    let reason = args.join(" ").slice(22);
+    let admin = message.guild.roles.find("name", "%~Admin~%");
+    let logs = message.guild.channels.find(`name`, "logs");
+    if (!bUser) return message.channel.send("Nemůžeš vyhodit vzduch :joy: (P>kick ``@člověk`` důvod");
+    if (!reason) return message.channel.send("Prosím zadejte důvod (P>kick @Člověk ``Důvod``)");
+    if (bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka kicknout");
+    if (!admin) return message.channel.send("Nemáš práva!");
+    
+    var embed = new Discord.RichEmbed()
+    .setTitle("Ban oznámení")
+    .setTimestamp()
+    .addField("Zabanovanej:", bUser)
+    .addField("Moderator:", message.author.username)
+    .addField("Důvod:", reason)
+    .setColor("#f40c3a");
+    
+    message.guild.member(bUser).ban(reason)
+    logs.send(embed)
   }
 });
 
