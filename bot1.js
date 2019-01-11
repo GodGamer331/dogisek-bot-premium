@@ -62,6 +62,7 @@ bot.on("message", async message => {
     .addField("Varován:", wUser)
     .addField("Moderátor:", message.author.username)
     .addField("Důvod:", reason)
+    .setColor("#ffff00")
     .setFooter("Moderátor " + message.author.username + " varoval " + wUser);
     logs.send(embed)
     } else {
