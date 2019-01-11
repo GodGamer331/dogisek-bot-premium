@@ -29,10 +29,10 @@ bot.on("message", async message => {
     let premium = message.guild.roles.find("name", "★†Premium†★")
     if(!premium) return message.channel.send("Nemáš Prémium u Dogisek Bot!!")
   
-    if(!args[0]) return message.channel.send("Použití: ``>say BlahBlahBlah lol``")
+    if(!saytxt) return message.channel.send("Použití: ``>say BlahBlahBlah lol``")
 
     message.channel.send(saytxt)
-    }
+  }
   if (cmd === `${prefix}ping`) {
     let premium = message.guild.roles.find("name", "★†Premium†★");
     if (message.member.roles.has(premium.id)) {
