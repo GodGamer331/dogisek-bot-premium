@@ -22,6 +22,17 @@ bot.on("message", async message => {
   //ping command ↓
   
   //if (!premium) return message.channel.send("Nejsi prémium!")
+  
+  if (cmd === `${prefix}say`){
+    let saytxt = args.join(" ").slice(22)
+  
+    let premium = message.guild.roles.find("name", "★†Premium†★")
+    if(!premium) return message.channel.send("Nemáš Prémium u Dogisek Bot!!")
+  
+    if(!args[0]) return message.channel.send("Použití: ``>say BlahBlahBlah lol``")
+
+    message.channel.send(saytxt)
+    }
   if (cmd === `${prefix}ping`) {
     let premium = message.guild.roles.find("name", "★†Premium†★");
     if (message.member.roles.has(premium.id)) {
@@ -80,6 +91,7 @@ bot.on("message", async message => {
     .setTitle("Pomoc pro Prémium!")
     .setColor(0xffff00)
     .addField("P>ping", "Ukáže ti ping bota!")
+    .addField("P>say", "Bot nèco řekne.")
     .setTimestamp()
     .setFooter(message.author.username + "Potřeboval pomoc!");
     message.channel.send(embed)
@@ -114,9 +126,9 @@ bot.on("message", async message => {
     let reason = args.join(" ").slice(22);
     let admin = message.guild.roles.find("name", "%~Admin~%");
     let logs = message.guild.channels.find(`name`, "logs");
-    if (!bUser) return message.channel.send("Nemůžeš vyhodit vzduch :joy: (P>kick ``@člověk`` důvod");
-    if (!reason) return message.channel.send("Prosím zadejte důvod (P>kick @Člověk ``Důvod``)");
-    if (bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka kicknout");
+    if (!bUser) return message.channel.send("Nemůžeš vyhodit vzduch :joy: (P>ban ``@člověk`` důvod");
+    if (!reason) return message.channel.send("Prosím zadejte důvod (P>ban @Člověk ``Důvod``)");
+    if (bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nemohu tohoto člověka zabanovat!");
     if (!admin) return message.channel.send("Nemáš práva!");
     
     var embed = new Discord.RichEmbed()
@@ -129,6 +141,18 @@ bot.on("message", async message => {
     
     message.guild.member(bUser).ban(reason)
     logs.send(embed)
+  }
+  if (cmd === `${prefix}modhelp`){
+    var embed = new Discord.RichEmbed()
+    .setTitle("Pomoc pro moderátory!")
+    .setTimestamp()
+    .setFooter(message.author.avatarURL + "Pomoc potřeboval:" + message.author.username)
+    .setColor("#30a566")
+    .addField("P>ban", "Zabanuje uživatele.")
+    .addField("P>warn", "Varuje uživatele.")
+    .addField("P>kick", "Vyhodí uživatele.");
+    message.channel.send(embed)
+              
   }
 });
 
