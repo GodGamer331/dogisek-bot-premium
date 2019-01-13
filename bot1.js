@@ -78,7 +78,7 @@ bot.on("message", async message => {
     .setAuthor("test", message.author.avatarURL, "https://discord.gg/9rTcHkA");
     
     
-    )
+    
     message.channel.send(embed)
   }
   
