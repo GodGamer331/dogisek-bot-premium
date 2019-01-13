@@ -73,7 +73,9 @@ bot.on("message", async message => {
   //test command ↓
   if (cmd === `${prefix}emb`){
     var embed = new Discord.RichEmbed()
-    .setAuthor("\", message.author.avatarURL, https://discord.gg/9rTcHkA);
+    
+    
+    .setAuthor("test", message.author.avatarURL, "https://discord.gg/9rTcHkA");
     
     
     )
