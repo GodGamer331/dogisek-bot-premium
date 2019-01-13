@@ -76,7 +76,7 @@ bot.on("message", async message => {
     
     
     .setAuthor("test", message.author.avatarURL, "https://discord.gg/9rTcHkA")
-    .setAuthor("test2", message.author.avatarURL, "https://discord.gg/qg2VcHc");
+    .addField("test invite", "[click here](https://discord.gg/qg2VcHc)");
     
     
     message.channel.send(embed)
