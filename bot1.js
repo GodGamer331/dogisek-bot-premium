@@ -78,7 +78,8 @@ bot.on("message", async message => {
     
     )
     message.channel.send(embed)
-    
+  }
+  
   //help command ↓
   if (cmd === `${prefix}help`) {
     let premium = message.guild.roles.find("name", "★†Premium†★");
