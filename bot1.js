@@ -70,6 +70,15 @@ bot.on("message", async message => {
     }
     if (!logs) return message.channel.send("Není tu ``logs`` channal!")
   }
+  //test command ↓
+  if (cmd === `${prefix}emb`){
+    var embed = new Discord.RichEmbed()
+    .setAuthor(
+      .url("https://discord.gg/9rTcHkA")
+      .name("Test")
+    )
+    message.channel.send(embed)
+    
   //help command ↓
   if (cmd === `${prefix}help`) {
     let premium = message.guild.roles.find("name", "★†Premium†★");
